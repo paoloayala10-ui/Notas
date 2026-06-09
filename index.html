@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon">📝</span>
+        <div>
+          <h1>Notas</h1>
+          <p>Estilo Keep con fondo negro</p>
+        </div>
+      </div>
+      <button id="clearAll" class="ghost-btn">Borrar todo</button>
+    </header>
+
+    <section class="note-creator">
+      <input id="noteTitle" type="text" placeholder="Título" />
+      <textarea id="noteText" rows="4" placeholder="Escribe una nota..."></textarea>
+      <div class="creator-actions">
+        <button id="addNote">Agregar nota</button>
+      </div>
+    </section>
+
+    <main id="notesGrid" class="notes-grid"></main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

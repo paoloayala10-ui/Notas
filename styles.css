@@ -1,0 +1,218 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1115;
+  --surface: #181c22;
+  --surface-strong: #20232b;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f5f7fb;
+  --muted: #a6b0c3;
+  --accent: #ffca28;
+  --accent-soft: rgba(255, 202, 40, 0.16);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, rgba(255, 202, 40, 0.12), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(45, 247, 175, 0.12), transparent 16%),
+    var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 26px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.topbar p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.ghost-btn,
+button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover,
+.ghost-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.note-creator {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  margin-bottom: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.note-creator input,
+.note-creator textarea {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 16px 18px;
+  font-size: 1rem;
+  outline: none;
+  resize: vertical;
+}
+
+.note-creator input::placeholder,
+.note-creator textarea::placeholder {
+  color: rgba(246, 247, 250, 0.55);
+}
+
+.note-creator textarea {
+  min-height: 120px;
+}
+
+.creator-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#addNote {
+  background: linear-gradient(135deg, #ffd54f, #ff8f00);
+  color: #0f1115;
+  border: none;
+  min-width: 140px;
+}
+
+.notes-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.note-card {
+  position: relative;
+  padding: 22px;
+  min-height: 180px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.note-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255, 202, 40, 0.06), transparent 45%);
+  pointer-events: none;
+}
+
+.note-card h2 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.note-card p {
+  margin: 0;
+  color: rgba(249, 250, 252, 0.85);
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.note-actions button {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.note-actions button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.no-notes {
+  grid-column: 1 / -1;
+  padding: 40px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .topbar,
+  .note-creator {
+    padding: 18px;
+  }
+}
